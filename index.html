@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonibare Oluwatosin Mary — Portfolio</title>
+<style>
+  :root {
+    --cream: #F2EBD9;
+    --warm-white: #FDFAF5;
+    --deep-brown: #1A0A02;
+    --mid-brown: #5C2E00;
+    --gold: #B8860B;
+    --light-gold: #D4A017;
+    --muted: #4A3728;
+    --border: rgba(26,10,2,0.18);
+    --text: #1A0A02;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--warm-white);
+    color: var(--text);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── HERO ── */
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 96vh; }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 4rem 5rem 5rem; position: relative;
+    background: var(--warm-white);
+  }
+  .hero-left::after {
+    content: ''; position: absolute; right: 0; top: 10%; bottom: 10%;
+    width: 1px; background: var(--border);
+  }
+  .hero-tag {
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 1.4rem;
+    display: flex; align-items: center; gap: 0.8rem; font-family: Arial, sans-serif;
+  }
+  .hero-tag::before { content: ''; width: 2rem; height: 2px; background: var(--gold); }
+  h1 {
+    font-family: Georgia, serif; font-size: 4.4rem; font-weight: 700;
+    line-height: 1.05; color: var(--deep-brown); margin-bottom: 1.2rem;
+  }
+  h1 em { font-style: italic; color: var(--mid-brown); }
+  .hero-subtitle {
+    font-family: Arial, sans-serif; font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid-brown);
+    margin-bottom: 1.2rem;
+  }
+  .hero-desc {
+    font-size: 0.95rem; line-height: 1.8; color: var(--muted);
+    max-width: 420px; margin-bottom: 2.5rem; font-family: Arial, sans-serif;
+    font-weight: 400;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0; }
+  .btn-primary {
+    background: var(--deep-brown); color: #fff;
+    padding: 0.85rem 2rem; font-family: Arial, sans-serif; font-size: 0.75rem;
+    letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-linkedin {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: #0077B5; color: #fff; padding: 0.85rem 2rem;
+    font-family: Arial, sans-serif; font-size: 0.75rem;
+    letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+    text-decoration: none;
+  }
+  .hero-right {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 5rem 5rem 4rem; background: var(--cream);
+    position: relative; overflow: hidden;
+  }
+  .hero-right::before {
+    content: 'SOM'; position: absolute; bottom: -1rem; right: -1rem;
+    font-family: Georgia, serif; font-size: 13rem; font-weight: 700;
+    color: rgba(26,10,2,0.05); line-height: 1; user-select: none;
+  }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.2rem; }
+  .stat { border-left: 3px solid var(--gold); padding-left: 1.2rem; }
+  .stat-num {
+    font-family: Georgia, serif; font-size: 2.8rem; font-weight: 700;
+    line-height: 1; color: var(--deep-brown);
+  }
+  .stat-label {
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-top: 0.3rem; font-family: Arial, sans-serif; font-weight: 600;
+  }
+  .hero-info { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.65rem; }
+  .info-row { display: flex; align-items: flex-start; gap: 1rem; font-size: 0.85rem; color: var(--muted); font-family: Arial, sans-serif; }
+  .info-row strong { color: var(--deep-brown); font-weight: 700; min-width: 80px; }
+  .info-row a { color: var(--gold); text-decoration: none; font-weight: 700; }
+
+  /* ── SHARED SECTION STYLES ── */
+  section { padding: 5.5rem 5rem; }
+  .section-label {
+    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 0.7rem;
+    display: flex; align-items: center; gap: 0.8rem; font-family: Arial, sans-serif;
+  }
+  .section-label::before { content: ''; width: 2rem; height: 2px; background: var(--gold); }
+  h2 {
+    font-family: Georgia, serif; font-size: 3rem; font-weight: 700;
+    line-height: 1.12; color: var(--deep-brown); margin-bottom: 2.8rem;
+  }
+  h2 em { font-style: italic; color: var(--mid-brown); }
+
+  /* ── ABOUT / SPECIALIST SECTION ── */
+  #specialist { background: var(--deep-brown); }
+  #specialist .section-label { color: var(--light-gold); }
+  #specialist .section-label::before { background: var(--light-gold); }
+  #specialist h2 { color: #fff; }
+  #specialist h2 em { color: var(--light-gold); }
+  .specialist-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; }
+  .specialist-about {
+    font-size: 1rem; line-height: 1.85; color: #D4C5B0;
+    font-family: Arial, sans-serif; font-weight: 400; margin-bottom: 2rem;
+  }
+  .specialist-about strong { color: #fff; font-weight: 700; }
+  .two-col-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .spec-col-title {
+    font-family: Arial, sans-serif; font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--light-gold); font-weight: 700;
+    margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .spec-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .spec-list li {
+    font-size: 0.88rem; color: #C8B99A; font-family: Arial, sans-serif; font-weight: 400;
+    padding-left: 1.1rem; position: relative;
+  }
+  .spec-list li::before { content: '▸'; position: absolute; left: 0; color: var(--light-gold); font-size: 0.7rem; top: 0.18rem; }
+  .why-box {
+    background: rgba(255,255,255,0.05); border-left: 3px solid var(--light-gold);
+    padding: 2rem; margin-top: 2rem;
+  }
+  .why-box-title {
+    font-family: Georgia, serif; font-size: 1.1rem; font-weight: 700;
+    color: var(--light-gold); margin-bottom: 1rem;
+  }
+  .why-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .why-list li {
+    font-size: 0.88rem; color: #C8B99A; font-family: Arial, sans-serif;
+    padding-left: 1.1rem; position: relative;
+  }
+  .why-list li::before { content: '✓'; position: absolute; left: 0; color: var(--light-gold); font-weight: 700; }
+  .services-box { background: rgba(255,255,255,0.05); padding: 2rem; }
+  .services-box-title {
+    font-family: Georgia, serif; font-size: 1.1rem; font-weight: 700;
+    color: #fff; margin-bottom: 1rem;
+  }
+  .services-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .service-tag {
+    padding: 0.4rem 0.9rem; background: rgba(184,134,11,0.2);
+    border: 1px solid rgba(184,134,11,0.4);
+    font-size: 0.78rem; color: var(--light-gold);
+    font-family: Arial, sans-serif; font-weight: 600;
+  }
+
+  /* ── CASE STUDIES ── */
+  #case-studies { background: var(--cream); }
+  .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .case-card {
+    background: var(--warm-white); border-top: 4px solid var(--gold);
+    padding: 2rem;
+  }
+  .case-vertical {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; font-family: Arial, sans-serif;
+    margin-bottom: 0.6rem;
+  }
+  .case-title {
+    font-family: Georgia, serif; font-size: 1.2rem; font-weight: 700;
+    color: var(--deep-brown); margin-bottom: 1.2rem; line-height: 1.3;
+  }
+  .case-meta { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.2rem; }
+  .case-meta-row {
+    display: flex; gap: 0.5rem; font-size: 0.82rem; font-family: Arial, sans-serif;
+  }
+  .case-meta-label { font-weight: 700; color: var(--deep-brown); min-width: 75px; }
+  .case-meta-val { color: var(--muted); }
+  .case-results-title {
+    font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--mid-brown); font-weight: 700; font-family: Arial, sans-serif;
+    margin-bottom: 0.6rem; margin-top: 1rem;
+  }
+  .case-results { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .case-results li {
+    font-size: 0.84rem; color: var(--muted); font-family: Arial, sans-serif;
+    padding-left: 1.1rem; position: relative; line-height: 1.5;
+  }
+  .case-results li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+  .case-execution {
+    margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);
+    font-size: 0.84rem; color: var(--muted); font-family: Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .case-execution strong { color: var(--deep-brown); font-weight: 700; }
+
+  /* ── FUNNEL CAPABILITIES ── */
+  #funnel { background: var(--warm-white); }
+  .funnel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .funnel-card {
+    padding: 2rem; border: 1px solid var(--border); border-top: 3px solid var(--gold);
+  }
+  .funnel-card-title {
+    font-family: Georgia, serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--deep-brown); margin-bottom: 0.8rem;
+  }
+  .funnel-items { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .funnel-items li {
+    font-size: 0.87rem; color: var(--muted); font-family: Arial, sans-serif;
+    padding-left: 1.2rem; position: relative;
+  }
+  .funnel-items li::before { content: '—'; position: absolute; left: 0; color: var(--light-gold); font-weight: 700; }
+  .funnel-note {
+    margin-top: 2rem; padding: 1.4rem 1.8rem;
+    background: var(--cream); border-left: 3px solid var(--gold);
+    font-size: 0.88rem; color: var(--muted); font-family: Arial, sans-serif;
+    font-style: italic;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--cream); }
+  .exp-list { display: flex; flex-direction: column; }
+  .exp-item {
+    display: grid; grid-template-columns: 185px 1fr;
+    gap: 2.5rem; padding: 2rem 0; border-bottom: 1px solid var(--border);
+  }
+  .exp-date {
+    font-size: 0.78rem; color: var(--muted); letter-spacing: 0.06em;
+    padding-top: 0.2rem; font-family: Arial, sans-serif; font-weight: 600;
+  }
+  .exp-role {
+    font-family: Georgia, serif; font-size: 1.35rem; font-weight: 700;
+    color: var(--deep-brown); margin-bottom: 0.2rem;
+  }
+  .exp-company {
+    font-size: 0.78rem; color: var(--gold); font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem;
+    font-family: Arial, sans-serif;
+  }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+  .exp-bullets li {
+    font-size: 0.87rem; line-height: 1.65; color: var(--muted);
+    padding-left: 1.2rem; position: relative; font-family: Arial, sans-serif;
+  }
+  .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--warm-white); }
+  .skills-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .skill-cat-title {
+    font-family: Georgia, serif; font-size: 1.1rem; font-weight: 700;
+    color: var(--deep-brown); margin-bottom: 1rem;
+    padding-bottom: 0.6rem; border-bottom: 2px solid var(--border);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    padding: 0.42rem 0.95rem; border: 1.5px solid var(--border);
+    font-size: 0.76rem; color: var(--mid-brown); background: var(--cream);
+    font-family: Arial, sans-serif; font-weight: 600;
+  }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--cream); }
+  .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
+  .edu-card { padding: 1.7rem; background: var(--warm-white); border-top: 4px solid var(--gold); }
+  .edu-degree {
+    font-family: Georgia, serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--deep-brown); margin-bottom: 0.3rem;
+  }
+  .edu-school { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.28rem; font-family: Arial, sans-serif; font-weight: 400; }
+  .edu-year { font-size: 0.72rem; color: var(--gold); letter-spacing: 0.1em; font-weight: 700; text-transform: uppercase; font-family: Arial, sans-serif; }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications { background: var(--warm-white); }
+  .cert-list { display: flex; flex-direction: column; gap: 0.9rem; }
+  .cert-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem 1.5rem; background: var(--cream); border-left: 4px solid var(--gold);
+  }
+  .cert-name { font-family: Georgia, serif; font-size: 1.05rem; font-weight: 700; color: var(--deep-brown); }
+  .cert-year { font-size: 0.74rem; color: var(--gold); letter-spacing: 0.1em; font-weight: 700; text-transform: uppercase; white-space: nowrap; margin-left: 1rem; font-family: Arial, sans-serif; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--deep-brown); }
+  #contact .section-label { color: var(--light-gold); }
+  #contact .section-label::before { background: var(--light-gold); }
+  #contact h2 { color: #fff; }
+  #contact h2 em { color: var(--light-gold); }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.6rem; }
+  .contact-item-label {
+    font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--light-gold); margin-bottom: 0.3rem; font-weight: 700; font-family: Arial, sans-serif;
+  }
+  .contact-item-val { font-size: 0.95rem; color: #fff; font-family: Arial, sans-serif; font-weight: 400; }
+  .contact-item-val a { color: #7EC8E3; text-decoration: none; font-weight: 700; }
+  .contact-quote {
+    color: #fff; font-family: Georgia, serif; font-size: 1.7rem;
+    font-style: italic; line-height: 1.45; margin-top: 1.5rem;
+  }
+  .contact-quote::before { content: '"'; color: var(--light-gold); }
+  .contact-quote::after { content: '"'; color: var(--light-gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #100600; color: #7A6050;
+    padding: 1.6rem 5rem; display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.74rem; letter-spacing: 0.06em; font-family: Arial, sans-serif; font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Available for New Opportunities</p>
+    <h1>Sonibare<br><em>Oluwatosin</em><br>Mary</h1>
+    <p class="hero-subtitle">Lead Generation &amp; Performance Marketing Specialist</p>
+    <p class="hero-desc">
+      Affiliate Manager &amp; Digital Marketing Professional with 5+ years of experience driving campaign performance, managing partner ecosystems, and generating high-quality, intent-driven leads across key verticals.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+      <a href="https://www.linkedin.com/in/oluwatosin-sonibare" target="_blank" class="btn-linkedin">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Qualified Leads Generated</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Key Verticals</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Certifications</div></div>
+    </div>
+    <div class="hero-info">
+      <div class="info-row"><strong>Location</strong> Kaura, Abuja, Nigeria</div>
+      <div class="info-row"><strong>Phone</strong> +234 706 576 2289</div>
+      <div class="info-row"><strong>Email</strong> oluwatosinsonibare087@gmail.com</div>
+      <div class="info-row"><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/oluwatosin-sonibare">linkedin.com/in/oluwatosin-sonibare</a></div>
+      <div class="info-row"><strong>Languages</strong> English · Yoruba · Hausa</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SPECIALIST PROFILE ═══ -->
+<section id="specialist">
+  <p class="section-label">Specialist Profile</p>
+  <h2>Lead Generation &amp; <em>Performance Marketing</em></h2>
+  <div class="specialist-grid">
+    <div>
+      <p class="specialist-about">
+        I specialize in generating <strong>high-quality, intent-driven leads</strong> across key verticals including <strong>Home Services, Solar, Insurance,</strong> and <strong>Mortgage</strong>.
+        <br><br>
+        My approach is performance-focused — combining <strong>precise audience targeting</strong>, conversion-optimized funnels, and continuous campaign optimization to deliver consistent lead volume and strong ROI for partners.
+        <br><br>
+        I work with both <strong>exclusive and shared lead models</strong> and prioritize long-term partnerships built on quality, transparency, and scalability.
+      </p>
+      <div class="two-col-lists">
+        <div>
+          <div class="spec-col-title">Core Expertise</div>
+          <ul class="spec-list">
+            <li>High-Intent Lead Generation (CPL / CPA)</li>
+            <li>Paid Traffic Acquisition &amp; Scaling</li>
+            <li>Funnel Design &amp; Conversion Optimization</li>
+            <li>Audience Targeting &amp; Retargeting</li>
+            <li>Campaign Analytics &amp; Performance Tracking</li>
+          </ul>
+        </div>
+        <div>
+          <div class="spec-col-title">Traffic Channels</div>
+          <ul class="spec-list">
+            <li>Facebook &amp; Instagram Ads (Meta)</li>
+            <li>Google Ads (Search &amp; Display)</li>
+            <li>Native Advertising Platforms</li>
+            <li>Affiliate Networks &amp; Partner Traffic</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="services-box">
+        <div class="services-box-title">Services Offered</div>
+        <div class="services-tags">
+          <span class="service-tag">Exclusive Lead Delivery</span>
+          <span class="service-tag">Shared Lead Delivery</span>
+          <span class="service-tag">Campaign Setup &amp; Management</span>
+          <span class="service-tag">Traffic Scaling</span>
+          <span class="service-tag">Lead Quality Optimization</span>
+          <span class="service-tag">Lead Filtering</span>
+        </div>
+      </div>
+      <div class="why-box">
+        <div class="why-box-title">Why Work With Me</div>
+        <ul class="why-list">
+          <li>Consistent focus on lead quality and buyer intent</li>
+          <li>Data-driven optimization and scaling approach</li>
+          <li>Clear communication and fast iteration cycles</li>
+          <li>Flexible collaboration based on partner needs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CASE STUDIES ═══ -->
+<section id="case-studies">
+  <p class="section-label">Proven Results</p>
+  <h2>Case <em>Studies</em></h2>
+  <div class="case-grid">
+
+    <div class="case-card">
+      <div class="case-vertical">Solar · US Market</div>
+      <div class="case-title">Solar Lead Generation Campaign</div>
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Traffic</span><span class="case-meta-val">Facebook Ads</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Targeting</span><span class="case-meta-val">Homeowners + interest-based segmentation</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Model</span><span class="case-meta-val">CPL / Exclusive Leads</span></div>
+      </div>
+      <div class="case-results-title">Results</div>
+      <ul class="case-results">
+        <li>Generated <strong>500+ qualified leads</strong></li>
+        <li>Maintained consistent daily lead flow</li>
+        <li>Optimized CPL through creative &amp; audience testing</li>
+      </ul>
+      <div class="case-execution"><strong>Execution:</strong> Built and tested multiple creatives, refined targeting weekly, and optimized funnel flow to improve conversion rates.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-vertical">Home Services</div>
+      <div class="case-title">Cleaning &amp; Repairs Lead Generation</div>
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Traffic</span><span class="case-meta-val">Google Search Ads</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Strategy</span><span class="case-meta-val">High-intent keyword targeting</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Model</span><span class="case-meta-val">CPA / Inbound Search</span></div>
+      </div>
+      <div class="case-results-title">Results</div>
+      <ul class="case-results">
+        <li>Strong conversion rates from inbound search traffic</li>
+        <li>High-quality leads with immediate service intent</li>
+        <li>Streamlined landing pages for fast user action</li>
+      </ul>
+      <div class="case-execution"><strong>Execution:</strong> Focused on bottom-of-funnel keywords and streamlined landing pages for fast user action.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-vertical">Insurance</div>
+      <div class="case-title">Auto &amp; Home Insurance Lead Campaign</div>
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Traffic</span><span class="case-meta-val">Native Advertising</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Strategy</span><span class="case-meta-val">Pre-sell + lead capture funnel</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Model</span><span class="case-meta-val">CPL / Shared Leads</span></div>
+      </div>
+      <div class="case-results-title">Results</div>
+      <ul class="case-results">
+        <li>Scalable campaign structure built for longevity</li>
+        <li>Consistent daily lead generation achieved</li>
+        <li>Improved conversion efficiency via pre-sell content</li>
+      </ul>
+      <div class="case-execution"><strong>Execution:</strong> Used advertorial-style content to warm up users before lead capture, improving conversion efficiency.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ FUNNEL & ASSET CAPABILITIES ═══ -->
+<section id="funnel">
+  <p class="section-label">Technical Capabilities</p>
+  <h2>Funnel &amp; <em>Asset Capabilities</em></h2>
+  <div class="funnel-grid">
+    <div class="funnel-card">
+      <div class="funnel-card-title">Funnel Assets</div>
+      <ul class="funnel-items">
+        <li>High-converting landing page structures</li>
+        <li>Lead capture funnels optimized for CPL campaigns</li>
+        <li>Ad creatives (copy + visual direction)</li>
+        <li>Pre-sell and advertorial frameworks</li>
+      </ul>
+    </div>
+    <div class="funnel-card">
+      <div class="funnel-card-title">Campaign Capabilities</div>
+      <ul class="funnel-items">
+        <li>Multi-platform campaign setup and scaling</li>
+        <li>A/B creative testing and iteration cycles</li>
+        <li>Audience segmentation and lookalike targeting</li>
+        <li>Performance dashboards and weekly reporting</li>
+      </ul>
+    </div>
+  </div>
+  <div class="funnel-note">
+    Samples of landing pages, funnels, and ad creative are available upon request during discussion.
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience">
+  <p class="section-label">Career Journey</p>
+  <h2>Professional <em>Experience</em></h2>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-date">Aug 2021 — Jul 2025</div>
+      <div>
+        <div class="exp-role">Advertiser / Affiliate Manager</div>
+        <div class="exp-company">Adstone Affiliates</div>
+        <ul class="exp-bullets">
+          <li>Launched and managed affiliate programmes end-to-end, driving consistent partner growth</li>
+          <li>Prepared and presented weekly marketing campaigns and strategic agendas to clients</li>
+          <li>Managed day-to-day affiliate accounts — pushing campaigns and maximising partner ROI</li>
+          <li>Negotiated terms and payout structures to balance competitiveness with profitability</li>
+          <li>Produced compelling creative content write-ups to support campaign performance</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">May 2020 — Jun 2021</div>
+      <div>
+        <div class="exp-role">Affiliate Manager</div>
+        <div class="exp-company">Bloomclicks Affiliate Network · Ibadan</div>
+        <ul class="exp-bullets">
+          <li>Onboarded new affiliates and managed existing partner relationships at scale</li>
+          <li>Developed marketing campaigns and presented strategies at regular client meetings</li>
+          <li>Drove affiliate performance through targeted campaign pushes and ROI optimisation</li>
+          <li>Negotiated terms &amp; payouts and maintained high levels of partner satisfaction</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Jun 2019 — Jan 2020</div>
+      <div>
+        <div class="exp-role">Personal Assistant / Supervisor</div>
+        <div class="exp-company">Boset Pharmacy · Ibadan</div>
+        <ul class="exp-bullets">
+          <li>Supervised all sales staff and ensured proper shelving and merchandising of stock</li>
+          <li>Managed imprest/petty cash accounts and ensured accurate financial record-keeping</li>
+          <li>Led the medication use review process; ensured all records were accurately maintained</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Apr 2018 — Mar 2019</div>
+      <div>
+        <div class="exp-role">Assistant Lecturer / Receptionist</div>
+        <div class="exp-company">NYSC — Shehu Shagari College of Education · Sokoto</div>
+        <ul class="exp-bullets">
+          <li>Coordinated student classes and supervised examinations with diligence</li>
+          <li>Welcomed and received visitors, managing front-desk operations professionally</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Sep 2017 — Apr 2018</div>
+      <div>
+        <div class="exp-role">Class Teacher / Subject Teacher</div>
+        <div class="exp-company">Beulah Model College · Ibadan</div>
+        <ul class="exp-bullets">
+          <li>Coordinated all Biology classes, improving student engagement and performance scores</li>
+          <li>Set examinations, prepared report cards, and undertook school improvement activities</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Dec 2015 — Apr 2017</div>
+      <div>
+        <div class="exp-role">Biology Teacher</div>
+        <div class="exp-company">Baptist Boys' College &amp; Paragon Intl. College · Abeokuta</div>
+        <ul class="exp-bullets">
+          <li>Designed and deployed effective teaching methods to impart knowledge in students</li>
+          <li>Organised specimens for practical classes and helped students overcome exam anxiety</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS ═══ -->
+<section id="skills">
+  <p class="section-label">Capabilities</p>
+  <h2>Skills &amp; <em>Competencies</em></h2>
+  <div class="skills-wrapper">
+    <div>
+      <div class="skill-cat-title">Digital Marketing</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Affiliate Management</span>
+        <span class="skill-tag">Campaign Strategy</span>
+        <span class="skill-tag">ROI Optimisation</span>
+        <span class="skill-tag">Partner Negotiation</span>
+        <span class="skill-tag">Content Writing</span>
+        <span class="skill-tag">Account Management</span>
+        <span class="skill-tag">Performance Marketing</span>
+        <span class="skill-tag">Email Marketing</span>
+        <span class="skill-tag">Social Media Marketing</span>
+        <span class="skill-tag">SEO Fundamentals</span>
+        <span class="skill-tag">Conversion Optimisation</span>
+        <span class="skill-tag">Brand Communication</span>
+        <span class="skill-tag">Market Research</span>
+        <span class="skill-tag">Campaign Analytics</span>
+        <span class="skill-tag">Lead Generation (CPL/CPA)</span>
+        <span class="skill-tag">Paid Traffic Acquisition</span>
+        <span class="skill-tag">Funnel Design</span>
+        <span class="skill-tag">Retargeting Strategies</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-cat-title">Professional Skills</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Virtual Assistance</span>
+        <span class="skill-tag">Leadership</span>
+        <span class="skill-tag">Team Collaboration</span>
+        <span class="skill-tag">Problem Solving</span>
+        <span class="skill-tag">Financial Management</span>
+        <span class="skill-tag">Data Collection &amp; Analysis</span>
+        <span class="skill-tag">Project Coordination</span>
+        <span class="skill-tag">Client Relationship Management</span>
+        <span class="skill-tag">Report Writing</span>
+        <span class="skill-tag">Time Management</span>
+        <span class="skill-tag">Strategic Planning</span>
+        <span class="skill-tag">Stakeholder Communication</span>
+        <span class="skill-tag">Administrative Management</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-cat-title">Technology</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Microsoft Word</span>
+        <span class="skill-tag">Microsoft Excel</span>
+        <span class="skill-tag">Microsoft PowerPoint</span>
+        <span class="skill-tag">Google Workspace</span>
+        <span class="skill-tag">Google Analytics</span>
+        <span class="skill-tag">Meta Ads Manager</span>
+        <span class="skill-tag">Google Ads</span>
+        <span class="skill-tag">Native Ad Platforms</span>
+        <span class="skill-tag">Affiliate Tracking Platforms</span>
+        <span class="skill-tag">CRM Tools</span>
+        <span class="skill-tag">Canva</span>
+        <span class="skill-tag">Zoom / Google Meet</span>
+        <span class="skill-tag">Trello / Asana</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-cat-title">Languages</div>
+      <div class="skill-tags">
+        <span class="skill-tag">English (Fluent)</span>
+        <span class="skill-tag">Yoruba (Native)</span>
+        <span class="skill-tag">Hausa (Proficient)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDUCATION ═══ -->
+<section id="education">
+  <p class="section-label">Academic Background</p>
+  <h2>Education &amp; <em>Training</em></h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">B.Sc. (Ed) Biology / Chemistry — Second Class</div>
+      <div class="edu-school">University of Ibadan, Oyo State</div>
+      <div class="edu-year">2014 — 2017</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">West African Senior School Certificate (Science)</div>
+      <div class="edu-school">Federal Government Girls' College, Oyo</div>
+      <div class="edu-year">2009 — 2011</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Junior Secondary School Certificate</div>
+      <div class="edu-school">Mighty Miracle College, Oke-Bola, Ibadan</div>
+      <div class="edu-year">2007 — 2009</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">First School Leaving Certificate</div>
+      <div class="edu-school">Sunshine Kiddies College, Oke-Bola, Ibadan</div>
+      <div class="edu-year">2001 — 2007</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CERTIFICATIONS ═══ -->
+<section id="certifications">
+  <p class="section-label">Credentials</p>
+  <h2>Certifications &amp; <em>Achievements</em></h2>
+  <div class="cert-list">
+    <div class="cert-item"><span class="cert-name">Virtual Assistant Professional (VAP)</span><span class="cert-year">2024</span></div>
+    <div class="cert-item"><span class="cert-name">Fundamentals of Digital Marketing</span><span class="cert-year">Jun 2020</span></div>
+    <div class="cert-item"><span class="cert-name">Teachers' Registration Council of Nigeria (TRCN)</span><span class="cert-year">Jul 2018</span></div>
+    <div class="cert-item"><span class="cert-name">NYSC — INEC Community Development Group</span><span class="cert-year">2018 — 2019</span></div>
+    <div class="cert-item"><span class="cert-name">Financial Secretary — Biology Students Association, UI</span><span class="cert-year">2016 — 2017</span></div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <p class="section-label">Let's Connect</p>
+  <h2>Get In <em>Touch</em></h2>
+  <div class="contact-layout">
+    <div class="contact-info">
+      <div><div class="contact-item-label">Location</div><div class="contact-item-val">Kaura, Abuja, Nigeria</div></div>
+      <div><div class="contact-item-label">Phone</div><div class="contact-item-val">+234 706 576 2289</div></div>
+      <div><div class="contact-item-label">Email</div><div class="contact-item-val">oluwatosinsonibare087@gmail.com</div></div>
+      <div><div class="contact-item-label">LinkedIn</div><div class="contact-item-val"><a href="https://www.linkedin.com/in/oluwatosin-sonibare">linkedin.com/in/oluwatosin-sonibare</a></div></div>
+      <div><div class="contact-item-label">Availability</div><div class="contact-item-val">Open to full-time &amp; freelance opportunities</div></div>
+    </div>
+    <div>
+      <p style="color:#C8B99A; font-size:0.92rem; line-height:1.85; margin-bottom:1.5rem; font-family:Arial,sans-serif;">
+        I'm passionate about driving results through strategic affiliate partnerships, performance marketing, and creative lead generation. Whether you have a project, a role, or just want to connect — I'd love to hear from you.
+      </p>
+      <p class="contact-quote">An innovative professional committed to creating lasting impact in every role she occupies.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Sonibare Oluwatosin Mary. All rights reserved.</span>
+  <span>Lead Generation Specialist · Affiliate Manager · Digital Marketer</span>
+</footer>
+
+</body>
+</html>
